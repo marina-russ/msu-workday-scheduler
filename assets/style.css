@@ -1,0 +1,51 @@
+:root {}
+
+/** GLOBAL STYLES **/
+
+
+/** HEADER STYLES **/
+
+main {
+  font-family: Helvetica, sans-serif;
+}
+
+
+/** MAIN STYLES **/
+
+
+#file-folder {
+  max-width: 950px;
+  background-color: mediumturquoise;
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: 100px;
+  padding: 0 20px;
+}
+
+.grid-row-wrapper {
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 15% auto 10%;
+  grid-column: 1 / 4;
+
+}
+
+.hour {
+  background-color: navajowhite;
+  grid-column: 1 / 2;
+}
+
+.task-area {
+  background-color: sandybrown;
+  grid-column: 2 / 3;
+}
+
+.save {
+  background-color: salmon;
+  grid-column: 3 / 4;
+}
+
+
+/** DAILY SCHEDULE STYLES **/
