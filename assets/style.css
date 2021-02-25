@@ -64,6 +64,8 @@ p {
   grid-column: 1 / 2;
 }
 
+/* TODO: add color gradient for time of day */
+
 h4 {
   margin: 0;
   font-size: 24px;
