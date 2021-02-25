@@ -1,13 +1,22 @@
-:root {}
+:root {
+  --manilla: navajowhite;
+}
 
 /** GLOBAL STYLES **/
+
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
 
 
 /** HEADER STYLES **/
 
-main {
-  font-family: Helvetica, sans-serif;
-}
 
 
 /** MAIN STYLES **/
@@ -18,10 +27,28 @@ main {
   background-color: mediumturquoise;
 }
 
+.date-on-tab {
+  background-color: var(--manilla);
+  border-top-right-radius: 50%;
+  width: 250px; 
+  margin: 0;
+}
+
+.date-on-tab h3 {
+  padding: 10px 0 0px 20px;
+  margin: 0;
+}
+
 .grid {
   display: grid;
   grid-template-rows: 100px;
   padding: 0 20px;
+  margin: 0;
+}
+
+#daily-schedule {
+  background-color: var(--manilla);
+  padding-top: 20px;
 }
 
 .grid-row-wrapper {
@@ -29,22 +56,40 @@ main {
   display: grid;
   grid-template-columns: 15% auto 10%;
   grid-column: 1 / 4;
-
 }
 
 .hour {
-  background-color: navajowhite;
+  text-align: center;
+  background-color: lightgreen;
   grid-column: 1 / 2;
+}
+
+h4 {
+  margin: 0;
+  font-size: 24px;
+  padding: 5px 0; /* * Make sure to match with .task-area & .save top/bottom padding*/
+}
+
+h4 span {
+  font-variant: small-caps;
+}
+
+text-area {
+  border: 1px solid black;
+  width: 100px;
 }
 
 .task-area {
   background-color: sandybrown;
   grid-column: 2 / 3;
+  margin: 0;
+  padding: 5px 0; /* * Make sure to match with h4 top/bottom padding*/
 }
 
 .save {
   background-color: salmon;
   grid-column: 3 / 4;
+    padding: 5px 0; /* * Make sure to match with h4 top/bottom padding*/
 }
 
 
