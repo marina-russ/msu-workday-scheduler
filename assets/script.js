@@ -2,7 +2,7 @@
 // SCRIPT STATUS
 // ********************************************************************* //
 
-// * Display current date & time w/date.fns
+// * Display current date & time w/__date.fns__
 // * Highlight current hour's row; Shade past hour rows; & Shade#2 future hour rows
 
 // ? Task items can be entered, saved, and deleted
@@ -11,10 +11,44 @@
 // * Use expand button to hide user-input when it is not needed
 
 // ********************************************************************* //
+// TIME LIBRARY
+// ********************************************************************* //
+// gets today's date from moment.js
+// ll locale date format = Feb 26, 2021
+let nowDate = moment().format('ll');
+// LT locale time format = 6:17pm 
+let nowTime = moment().format('LT');
+
+// * creates <h2> to shows current date 
+window.addEventListener('load', function () {
+  // creates new h2 element
+  let h2El = document.createElement('h2');
+  // places date text into h2
+  h2El.innerHTML = nowDate;
+  // attaches new h2 element to existing <div>
+  document.getElementById('today-div').appendChild(h2El);
+  }
+);
+
+// * creates <h3> to shows current time 
+window.addEventListener('load', function () {
+  // creates new h2 element
+  let h3El = document.createElement('h3');
+  // places date text into h2
+  h3El.innerHTML = nowTime;
+  // attaches new h2 element to existing <div>
+  document.getElementById('today-div').appendChild(h3El);
+}
+);
+
+
+
+
+// ********************************************************************* //
 // ADD, SAVE, & DELETE TODO ITEMS
 // ********************************************************************* //
 
-// link JS variables to HTML elements in DOM
+// links JS variables to HTML elements in DOM
 const todoForm = document.querySelector('.todo-form');
 const todoInput = document.querySelector('.todo-input');
 const todoItemsList = document.querySelector('.todo-items'); // <ul> class
@@ -32,7 +66,9 @@ todoForm.addEventListener('submit', function(event) {
 });
 
 // * takes new value and pushes into todo array
+
 function addTodo(item) {
+  // TODO: this is where item value is set, correct? i put it in as an empty parameter but then the following code assigns it a value.
   // if item is not empty
   if (item !== '') {
     // makes an Object which has id, name, and completed properties
@@ -84,7 +120,7 @@ function renderTodos(todosArray) {
   });
 }
 
-// * function to set values in localStorage
+// * sets values in localStorage
 function setLocalStorage(todosArray) {
   // uses JSON to convert array values into string; format is ('key', value)
   localStorage.setItem('todosArray', JSON.stringify(todosArray));
@@ -92,7 +128,7 @@ function setLocalStorage(todosArray) {
   renderTodos(todosArray);
 }
 
-// * function to get values from localStorage after page refresh;
+// * grabs values from localStorage after page refresh
 function getLocalStorage() {
   const storageRef = localStorage.getItem('todosArray');
   // if storage Reference variable exists,
@@ -104,7 +140,7 @@ function getLocalStorage() {
   }
 }
 
-// * function to toggle completion status
+// * toggles completion status
 function toggle(id) {
   todosArray.forEach(function(item) {
     // uses loose equality instead of strict here because one value is a number and one is a string
@@ -117,7 +153,7 @@ function toggle(id) {
   setLocalStorage(todosArray);
 }
 
-// * function to delete item from todosArray
+// * deletes item from todosArray
 //then updates localStorage & user screen
 function deleteTodo(id) {
   // filters out <li> with the id and updates the todos array
@@ -146,6 +182,13 @@ todoItemsList.addEventListener('click', function(event) {
     deleteTodo(event.target.parentElement.getAttribute('data-key'));
   }
 });
+
+// ********************************************************************* //
+// MULTIPLE HOURS TO HANDLE
+// ********************************************************************* //
+
+
+
 
 
 
