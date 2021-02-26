@@ -14,6 +14,9 @@ p {
   padding: 0;
 }
 
+li {
+  list-style: none;
+}
 
 /** HEADER STYLES **/
 
@@ -28,7 +31,7 @@ p {
 }
 
 .date-on-tab {
-  background-color: var(--manilla);
+  /*background-color: var(--manilla);*/
   border-top-right-radius: 50%;
   width: 250px; 
   margin: 0;
@@ -54,7 +57,7 @@ p {
 .grid-row-wrapper {
   border: 1px solid black;
   display: grid;
-  grid-template-columns: 15% auto 10%;
+  grid-template-columns: 15% auto 15%;
   grid-column: 1 / 4;
 }
 
@@ -76,11 +79,8 @@ h4 span {
   font-variant: small-caps;
 }
 
-text-area {
-  border: 1px solid black;
-  width: 100px;
-}
-
+/*******************/
+/**** TODO LIST ****/
 .task-area {
   background-color: sandybrown;
   grid-column: 2 / 3;
@@ -88,11 +88,79 @@ text-area {
   padding: 5px 0; /* * Make sure to match with h4 top/bottom padding*/
 }
 
-.save {
-  background-color: salmon;
-  grid-column: 3 / 4;
-    padding: 5px 0; /* * Make sure to match with h4 top/bottom padding*/
+form {
+  margin-left: 40px;
 }
 
+.todo-form {
+  /*FIXME: why am i not selecting the element correctly? */
+  color: blue;
+}
 
+/** TO-DO ITEMS **/
+.todo-item {
+  padding: 3px;
+  
+}
+.item {
+  background-color: #fff;
+  padding: 5px;
+  margin-right: 40px;
+}
+
+/* give the .item's -white background curved top/bottom corners*/
+.item:first-child {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+.item:last-child {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+/** TO-DO INPUTS **/
+input .todo-input {
+  /*FIXME: why am i not selecting the element correctly? */
+  font-color: blue;
+}
+
+.checkbox {
+  margin-right: 10px;
+}
+
+/* applied when the todo item is checked */
+.checked { 
+  /*TODO: rename as .completed*/
+  text-decoration: line-through;
+}
+
+/** TO-DO BUTTONS **/
+.add-button {
+  text-transform: uppercase;
+}
+
+.delete-button {
+  float: right;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 2px 5px;
+  margin-left: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.expand {
+  background-color: salmon;
+  grid-column: 3 / 4;
+  padding: 5px 0; /* * Make sure to match with h4 top/bottom padding*/
+  display: flex;
+}
+
+.expand-button {
+  margin: 0 auto;
+  height: 35px;
+}
+
+/***************************/
 /** DAILY SCHEDULE STYLES **/
