@@ -2,13 +2,12 @@
 // SCRIPT STATUS
 // ********************************************************************* //
 
-// * Display current date & time w/__date.fns__
+// ? Display current date & time
 // * Highlight current hour's row; Shade past hour rows; & Shade#2 future hour rows
 
 // ? Task items can be entered, saved, and deleted
 // ? Saved task items do not disappear on page refresh
-// * Enter/Save/Delete task items for multiple hours of the workday
-// * Use expand button to hide user-input when it is not needed
+// * Enter/Save/Delete events for multiple hours of the workday
 
 // ********************************************************************* //
 // TIME LIBRARY
@@ -30,16 +29,16 @@ window.addEventListener('load', function () {
   }
 );
 
-// * creates <h3> to shows current time 
-window.addEventListener('load', function () {
-  // creates new h2 element
-  let h3El = document.createElement('h3');
-  // places date text into h2
-  h3El.innerHTML = nowTime;
-  // attaches new h2 element to existing <div>
-  document.getElementById('today-div').appendChild(h3El);
-}
-);
+// // * creates <h3> to shows current time 
+// window.addEventListener('load', function () {
+//   // creates new h2 element
+//   let h3El = document.createElement('h3');
+//   // places date text into h2
+//   h3El.innerHTML = nowTime;
+//   // attaches new h2 element to existing <div>
+//   document.getElementById('today-div').appendChild(h3El);
+// }
+// );
 
 // ********************************************************************* //
 // ADD, SAVE, & DELETE TODO ITEMS
@@ -72,7 +71,6 @@ function addTodo(item) {
     const todoObject = {
       id: Date.now(),
       name: item,
-      completed: false
     };
 
     // adds todoObject to todosArray
@@ -137,19 +135,6 @@ function getLocalStorage() {
   }
 }
 
-// * toggles completion status
-function toggle(id) {
-  todosArray.forEach(function(item) {
-    // uses loose equality instead of strict here because one value is a number and one is a string
-    if (item.id == id) {
-      // toggles the value
-      item.completed = !item.completed;
-    }
-  });
-  // runs setLocalStorage() to update localStorage info
-  setLocalStorage(todosArray);
-}
-
 // * deletes item from todosArray
 //then updates localStorage & user screen
 function deleteTodo(id) {
@@ -164,21 +149,6 @@ function deleteTodo(id) {
 
 // calls function
 getLocalStorage();
-
-// * listens for any checkbox or delete button events, then passes data-key value
-todoItemsList.addEventListener('click', function(event) {
-  // checks if event is about the checkbox
-  if (event.target.type === 'checkbox') {
-    // toggles event state between checkbox and !checkbox for styling
-    toggle(event.target.parentElement.getAttribute('data-key'));
-  }
-
-  // checks if event is about the delete button
-  if (event.target.classList.contains('delete-button')) {
-    // passes parent <li>'s data-key id value to deleteTodo()
-    deleteTodo(event.target.parentElement.getAttribute('data-key'));
-  }
-});
 
 // ********************************************************************* //
 // MULTIPLE HOURS TO HANDLE
