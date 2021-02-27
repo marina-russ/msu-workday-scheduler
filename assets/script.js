@@ -2,13 +2,12 @@
 // SCRIPT STATUS
 // ********************************************************************* //
 
-// * Display current date & time w/__date.fns__
-// * Highlight current hour's row; Shade past hour rows; & Shade#2 future hour rows
-
+// ? Display current date & time
+// TODO: Highlight current hour's row; Shade past hour rows; & Shade#2 future hour rows
 // ? Task items can be entered, saved, and deleted
 // ? Saved task items do not disappear on page refresh
-// * Enter/Save/Delete task items for multiple hours of the workday
-// * Use expand button to hide user-input when it is not needed
+// FIXME: Enter/Save/Delete task items for multiple hours of the workday
+// bucket list TODO: Use expand button to hide user-input when it is not needed
 
 // ********************************************************************* //
 // TIME LIBRARY
@@ -46,15 +45,16 @@ window.addEventListener('load', function () {
 // ********************************************************************* //
 
 // links JS variables to HTML elements in DOM
-const todoForm = document.querySelector('.todo-form');
-const todoInput = document.querySelector('.todo-input');
-const todoItemsList = document.querySelector('.todo-items'); // <ul> class
+const todoForm = document.querySelector('.todo-form'); // <form>
+const todoInput = document.querySelector('.todo-input'); // <input>
+const todoItemsList = document.querySelector('.todo-items'); // <ul>
 
 // creates array to store todo objects
 // the todoObject & properties are created inside addTodo()
 let todosArray = [];
 
 // *Stops page reload on submit, passes input value to addTodo()
+// ! why can i use either EVENT or E? are both considered the same in DOM?
 todoForm.addEventListener('submit', function(event) {
   // prevents page reload from 'submit' event
   event.preventDefault();
@@ -63,15 +63,13 @@ todoForm.addEventListener('submit', function(event) {
 });
 
 // * takes new value and pushes into todo array
-
 function addTodo(item) {
-  // TODO: this is where item value is set, correct? i put it in as an empty parameter but then the following code assigns it a value.
   // if item is not empty
   if (item !== '') {
     // makes an Object which has id, name, and completed properties
     const todoObject = {
-      id: Date.now(),
-      name: item,
+      dateid: Date.now(),
+      name: item, // user text
       completed: false
     };
 
@@ -95,7 +93,7 @@ function renderTodos(todosArray) {
     const li = document.createElement('li');
     // sets <li> attributes
     li.setAttribute('class', 'item');
-    li.setAttribute('data-key', item.id); // aka time id
+    li.setAttribute('data-key', item.dateid); // aka time id
 
     // looks to see if item has 'checked' status (ternary operator)
     // adds .checked class to item if item.completed property is true
@@ -125,7 +123,7 @@ function setLocalStorage(todosArray) {
   renderTodos(todosArray);
 }
 
-// * grabs values from localStorage after page refresh
+// * gets values from localStorage after page refresh
 function getLocalStorage() {
   const storageRef = localStorage.getItem('todosArray');
   // if storage Reference variable exists,
@@ -138,10 +136,10 @@ function getLocalStorage() {
 }
 
 // * toggles completion status
-function toggle(id) {
+function toggle(dateid) {
   todosArray.forEach(function(item) {
     // uses loose equality instead of strict here because one value is a number and one is a string
-    if (item.id == id) {
+    if (item.dateid == dateid) {
       // toggles the value
       item.completed = !item.completed;
     }
@@ -152,11 +150,11 @@ function toggle(id) {
 
 // * deletes item from todosArray
 //then updates localStorage & user screen
-function deleteTodo(id) {
+function deleteTodo(dateid) {
   // filters out <li> with the id and updates the todos array
   todosArray = todosArray.filter(function(item) {
     // use loose inequality instead of strict here because one value is a number and one is a string
-    return item.id != id;
+    return item.dateid != dateid;
   });
   // update the localStorage
   setLocalStorage(todosArray);
