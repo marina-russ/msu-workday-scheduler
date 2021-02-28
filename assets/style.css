@@ -164,3 +164,15 @@ input .todo-input {
 
 /***************************/
 /** DAILY SCHEDULE STYLES **/
+
+.past {
+  background-color: yellow;
+}
+
+.present {
+  background-color: green;
+}
+
+.future {
+  background-color: blue;
+}
