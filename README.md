@@ -1,11 +1,8 @@
 # workday-scheduler
 A simple calendar app to save events for each hour of the day
 
-## Features:
-- Page refreshes every minute to display accurate time.
-
 ## Deployed App: 
-[Deployed App](https://marina-russ.github.io/workday-scheduler/)
+[Link to Deployed App](https://marina-russ.github.io/workday-scheduler/)
 
 ### User Story: 
 * AS AN employee with a busy schedule
@@ -26,3 +23,6 @@ A simple calendar app to save events for each hour of the day
 * THEN the text for that event is saved in local storage
 * WHEN I refresh the page
 * THEN the saved events persist
+
+## Screenshot of Application
+![Application Screenshot](assets/screenshot.png)
