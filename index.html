@@ -10,16 +10,19 @@
   <link rel="stylesheet" href="assets/style.css">
   <!-- date utility library -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+
+  <!-- font style -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+  href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Kalam&family=Roboto+Mono:wght@400;500&display=swap"
+  rel="stylesheet">
+
 </head>
 
 <body>
 
   <header>
-    <h1>Workday Scheduler</h1>
-    <div id="today-div">
-      <h2 id="date-here"></h2> <!-- * h2 is here -->
-    </div>
-  </header>
+    <h1>Workday</h1>
   </header>
 
   <main>
@@ -30,11 +33,14 @@
       </div> <!-- end DATE-ON-TAB -->
 
       <div class="grid" id="daily-schedule">
-
-        <div class="grid-row-wrapper" id="secret-timeblock">
-          <h6>Look into why is this div taller than the others.</h6>
-          <p>Has something to do with being the first one.</p>
+        
+        <div class="grid-row-wrapper secret-row">
+          &nbsp;
+          <div id="today-div">
+            <h2 id="date-here"></h2>
+          </div>
         </div>
+
 
         <!-- * 8AM -->
         <div class="grid-row-wrapper">

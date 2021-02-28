@@ -63,7 +63,7 @@ function renderTodosHR8(todosArrayHR8) {
     // adds HTML styling to new <li>'s that we add, also has template literal to dynamically enter needed values
     // uses back dashes to include the line breaks so HTML reads nicer
     liHR8.innerHTML = `
-      <input type="checkbox" class="checkbox li-hour-9" ${checked}>
+      <input type="checkbox" class="checkbox li-hour" ${checked}>
       ${dateItemHR8.name}
       <button class="delete-button">X</button>
     `;
@@ -200,7 +200,7 @@ function renderTodos(todosArrayHR9) {
     // adds HTML styling to new <li>'s that we add, also has template literal to dynamically enter needed values
     // uses back dashes to include the line breaks so HTML reads nicer
     liHR9.innerHTML = `
-      <input type="checkbox" class="checkbox li-hour-9" ${checked}>
+      <input type="checkbox" class="checkbox li-hour" ${checked}>
       ${dateItemHR9.name}
       <button class="delete-button">X</button>
     `;
@@ -337,7 +337,7 @@ function renderTodosHR10(todosArrayHR10) {
     // adds HTML styling to new <li>'s that we add, also has template literal to dynamically enter needed values
     // uses back dashes to include the line breaks so HTML reads nicer
     liHR10.innerHTML = `
-      <input type="checkbox" class="checkbox li-hour-9" ${checked}>
+      <input type="checkbox" class="checkbox li-hour" ${checked}>
       ${dateItemHR10.name}
       <button class="delete-button">X</button>
     `;
@@ -474,7 +474,7 @@ function renderTodosHR11(todosArrayHR11) {
     // adds HTML styling to new <li>'s that we add, also has template literal to dynamically enter needed values
     // uses back dashes to include the line breaks so HTML reads nicer
     liHR11.innerHTML = `
-      <input type="checkbox" class="checkbox li-hour-9" ${checked}>
+      <input type="checkbox" class="checkbox li-hour" ${checked}>
       ${dateItemHR11.name}
       <button class="delete-button">X</button>
     `;
@@ -611,7 +611,7 @@ function renderTodosHR12(todosArrayHR12) {
     // adds HTML styling to new <li>'s that we add, also has template literal to dynamically enter needed values
     // uses back dashes to include the line breaks so HTML reads nicer
     liHR12.innerHTML = `
-      <input type="checkbox" class="checkbox li-hour-9" ${checked}>
+      <input type="checkbox" class="checkbox li-hour" ${checked}>
       ${dateItemHR12.name}
       <button class="delete-button">X</button>
     `;
@@ -748,7 +748,7 @@ function renderTodosHR13(todosArrayHR13) {
     // adds HTML styling to new <li>'s that we add, also has template literal to dynamically enter needed values
     // uses back dashes to include the line breaks so HTML reads nicer
     liHR13.innerHTML = `
-      <input type="checkbox" class="checkbox li-hour-9" ${checked}>
+      <input type="checkbox" class="checkbox li-hour" ${checked}>
       ${dateItemHR13.name}
       <button class="delete-button">X</button>
     `;
@@ -885,7 +885,7 @@ function renderTodosHR14(todosArrayHR14) {
     // adds HTML styling to new <li>'s that we add, also has template literal to dynamically enter needed values
     // uses back dashes to include the line breaks so HTML reads nicer
     liHR14.innerHTML = `
-      <input type="checkbox" class="checkbox li-hour-9" ${checked}>
+      <input type="checkbox" class="checkbox li-hour" ${checked}>
       ${dateItemHR14.name}
       <button class="delete-button">X</button>
     `;
@@ -1022,7 +1022,7 @@ function renderTodosHR15(todosArrayHR15) {
     // adds HTML styling to new <li>'s that we add, also has template literal to dynamically enter needed values
     // uses back dashes to include the line breaks so HTML reads nicer
     liHR15.innerHTML = `
-      <input type="checkbox" class="checkbox li-hour-9" ${checked}>
+      <input type="checkbox" class="checkbox li-hour" ${checked}>
       ${dateItemHR15.name}
       <button class="delete-button">X</button>
     `;
@@ -1159,7 +1159,7 @@ function renderTodosHR16(todosArrayHR16) {
     // adds HTML styling to new <li>'s that we add, also has template literal to dynamically enter needed values
     // uses back dashes to include the line breaks so HTML reads nicer
     liHR16.innerHTML = `
-      <input type="checkbox" class="checkbox li-hour-9" ${checked}>
+      <input type="checkbox" class="checkbox li-hour" ${checked}>
       ${dateItemHR16.name}
       <button class="delete-button">X</button>
     `;
@@ -1296,7 +1296,7 @@ function renderTodosHR17(todosArrayHR17) {
     // adds HTML styling to new <li>'s that we add, also has template literal to dynamically enter needed values
     // uses back dashes to include the line breaks so HTML reads nicer
     liHR17.innerHTML = `
-      <input type="checkbox" class="checkbox li-hour-9" ${checked}>
+      <input type="checkbox" class="checkbox li-hour" ${checked}>
       ${dateItemHR17.name}
       <button class="delete-button">X</button>
     `;

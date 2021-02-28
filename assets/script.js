@@ -34,12 +34,18 @@ window.addEventListener('load', function () {
 // GET HOUR WITHOUT MINUTES
 // take current time - turn to string - pull first character
 let currentHourExact = moment().format('LT'); // 10:57 AM
-// change current time to a string, then split the string at : character to return the single- or double-digit hour number
-let currentHourString = currentHourExact.toString().split(':')[0]; // "10"
-console.log('current hour is:', currentHourString);
-// ? ============ i have current hour to compare against all time blocks
+// change current time to a string, then split the string at : character to return the single- or double-digit hour number, FINALLY use parseInt to turn back into a number so military time math works
+let currentHourString = parseInt(currentHourExact.toString().split(':')[0]); // "10"
+// add 12h to turn into military time
+if (currentHourString < 8) {
+  currentHourString += 12;
+  console.log('current hour is:', currentHourString);
+  // ? ============ i now have the current hour to compare against all time blocks
+}
+
 
 // TODO: CREATE AN ARRAY WITH ALL TIME BLOCK NUMBERS
+
 // let masterTimeBlockArray = []
 // // connect JS variable to HTML <form> element with id #todo-form-hour-#
 // let timeBlockHour = document.getElementById(`todo-form-hour-${currentHourString}`);
@@ -98,10 +104,10 @@ if (taskAreaBlockHour8 < currentHourString) {
   divEl8.classList.add('past');
 } else if (taskAreaBlockHour8 > currentHourString) {
   console.log('8am: ','add future hour styling')
-  divEl8.classList.add('present');
+  divEl8.classList.add('future');
 } else {
   console.log('8am: ','add current hour styling')
-  divEl8.classList.add('future');
+  divEl8.classList.add('present');
 }
 
 if (taskAreaBlockHour9 < currentHourString) {
@@ -109,10 +115,10 @@ if (taskAreaBlockHour9 < currentHourString) {
   divEl9.classList.add('past');
 } else if (taskAreaBlockHour9 > currentHourString) {
   console.log('9am: ','add future hour styling')
-  divEl9.classList.add('present');
+  divEl9.classList.add('future');
 } else {
   console.log('9am: ','add current hour styling')
-  divEl9.classList.add('future');
+  divEl9.classList.add('present');
 }
 
 if (taskAreaBlockHour10 < currentHourString) {
@@ -120,10 +126,10 @@ if (taskAreaBlockHour10 < currentHourString) {
   divEl10.classList.add('past');
 } else if (taskAreaBlockHour10 > currentHourString) {
   console.log('10am: ','add future hour styling')
-  divEl10.classList.add('present');
+  divEl10.classList.add('future');
 } else {
   console.log('10am: ','add current hour styling')
-  divEl10.classList.add('future');
+  divEl10.classList.add('present');
 }
 
 if (taskAreaBlockHour11 < currentHourString) {
@@ -131,10 +137,10 @@ if (taskAreaBlockHour11 < currentHourString) {
   divEl11.classList.add('past');
 } else if (taskAreaBlockHour11 > currentHourString) {
   console.log('11am: ','add future hour styling')
-  divEl11.classList.add('present');
+  divEl11.classList.add('future');
 } else {
   console.log('11am: ','add current hour styling')
-  divEl11.classList.add('future');
+  divEl11.classList.add('present');
 }
 
 if (taskAreaBlockHour12 < currentHourString) {
@@ -142,10 +148,10 @@ if (taskAreaBlockHour12 < currentHourString) {
   divEl12.classList.add('past');
 } else if (taskAreaBlockHour12 > currentHourString) {
   console.log('12am: ','add future hour styling')
-  divEl12.classList.add('present');
+  divEl12.classList.add('future');
 } else {
   console.log('12am: ','add current hour styling')
-  divEl12.classList.add('future');
+  divEl12.classList.add('present');
 }
 
 if (taskAreaBlockHour13 < currentHourString) {
@@ -153,10 +159,10 @@ if (taskAreaBlockHour13 < currentHourString) {
   divEl13.classList.add('past');
 } else if (taskAreaBlockHour13 > currentHourString) {
   console.log('13am: ','add future hour styling')
-  divEl13.classList.add('present');
+  divEl13.classList.add('future');
 } else {
   console.log('13am: ','add current hour styling')
-  divEl13.classList.add('future');
+  divEl13.classList.add('present');
 }
 
 if (taskAreaBlockHour14 < currentHourString) {
@@ -164,10 +170,10 @@ if (taskAreaBlockHour14 < currentHourString) {
   divEl14.classList.add('past');
 } else if (taskAreaBlockHour14 > currentHourString) {
   console.log('14am: ','add future hour styling')
-  divEl14.classList.add('present');
+  divEl14.classList.add('future');
 } else {
   console.log('14am: ','add current hour styling')
-  divEl14.classList.add('future');
+  divEl14.classList.add('present');
 }
 
 if (taskAreaBlockHour15 < currentHourString) {
@@ -175,10 +181,10 @@ if (taskAreaBlockHour15 < currentHourString) {
   divEl15.classList.add('past');
 } else if (taskAreaBlockHour15 > currentHourString) {
   console.log('15am: ','add future hour styling')
-  divEl15.classList.add('present');
+  divEl15.classList.add('future');
 } else {
   console.log('15am: ','add current hour styling')
-  divEl15.classList.add('future');
+  divEl15.classList.add('present');
 }
 
 if (taskAreaBlockHour16 < currentHourString) {
@@ -186,10 +192,10 @@ if (taskAreaBlockHour16 < currentHourString) {
   divEl16.classList.add('past');
 } else if (taskAreaBlockHour16 > currentHourString) {
   console.log('16am: ','add future hour styling')
-  divEl16.classList.add('present');
+  divEl16.classList.add('future');
 } else {
   console.log('16am: ','add current hour styling')
-  divEl16.classList.add('future');
+  divEl16.classList.add('present');
 }
 
 if (taskAreaBlockHour17 < currentHourString) {
@@ -197,9 +203,9 @@ if (taskAreaBlockHour17 < currentHourString) {
   divEl17.classList.add('past');
 } else if (taskAreaBlockHour17 > currentHourString) {
   console.log('17am: ','add future hour styling')
-  divEl17.classList.add('present');
+  divEl17.classList.add('future');
 } else {
   console.log('17am: ','add current hour styling')
-  divEl17.classList.add('future');
+  divEl17.classList.add('present');
 }
 

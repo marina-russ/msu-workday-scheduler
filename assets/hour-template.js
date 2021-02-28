@@ -63,7 +63,7 @@ function renderTodosHR17(todosArrayHR17) {
     // adds HTML styling to new <li>'s that we add, also has template literal to dynamically enter needed values
     // uses back dashes to include the line breaks so HTML reads nicer
     liHR17.innerHTML = `
-      <input type="checkbox" class="checkbox li-hour-9" ${checked}>
+      <input type="checkbox" class="checkbox li-hour" ${checked}>
       ${dateItemHR17.name}
       <button class="delete-button">X</button>
     `;
