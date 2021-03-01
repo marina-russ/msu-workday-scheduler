@@ -52,34 +52,6 @@ const todoItemsList = document.querySelector('.todo-items'); // <ul>
 // the todoObject & properties are created inside addTodo()
 let todosArray = [];
 
-// *Stops page reload on submit, passes input value to addTodo()
-todoForm.addEventListener('submit', function(event) {
-  // prevents page reload from 'submit' event
-  event.preventDefault();
-  // gets the value that user typed in the input box
-  addTodo(todoInput.value);
-});
-
-// * takes new value and pushes into todo array
-function addTodo(item) {
-  // if item is not empty
-  if (item !== '') {
-    // makes an Object which has id, name, and completed properties
-    const todoObject = {
-      dateid: Date.now(),
-      name: item, // user text
-      completed: false
-    };
-
-    // adds todoObject to todosArray
-    todosArray.push(todoObject);
-    // sends value to setToLocalStorage(), which will call renderTodos()
-    setLocalStorage(todosArray); 
-    // clears the input box value so new todos can be entered
-    todoInput.value = '';
-  }
-}
-
 // TODO: CREATE AN ARRAY WITH ALL TIME BLOCK NUMBERS
 
 // let masterTimeBlockArray = []
@@ -244,4 +216,3 @@ if (taskAreaBlockHour17 < currentHourString) {
   console.log('17am: ','add current hour styling');
   divEl17.classList.add('present');
 }
-
