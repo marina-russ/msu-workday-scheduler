@@ -43,6 +43,75 @@ if (currentHourString < 8) {
   // ? ============ i now have the current hour to compare against all time blocks
 }
 
+// links JS variables to HTML elements in DOM
+const todoForm = document.querySelector('.todo-form'); // <form>
+const todoInput = document.querySelector('.todo-input'); // <input>
+const todoItemsList = document.querySelector('.todo-items'); // <ul>
+
+// creates array to store todo objects
+// the todoObject & properties are created inside addTodo()
+let todosArray = [];
+
+// *Stops page reload on submit, passes input value to addTodo()
+// ! why can i use either EVENT or E? are both considered the same in DOM?
+todoForm.addEventListener('submit', function(event) {
+  // prevents page reload from 'submit' event
+  event.preventDefault();
+  // gets the value that user typed in the input box
+  addTodo(todoInput.value);
+});
+
+// * takes new value and pushes into todo array
+function addTodo(item) {
+  // if item is not empty
+  if (item !== '') {
+    // makes an Object which has id, name, and completed properties
+    const todoObject = {
+      dateid: Date.now(),
+      name: item, // user text
+      completed: false
+    };
+
+    // adds todoObject to todosArray
+    todosArray.push(todoObject);
+    // sends value to setToLocalStorage(), which will call renderTodos()
+    setLocalStorage(todosArray); 
+    // clears the input box value so new todos can be entered
+    todoInput.value = '';
+  }
+}
+
+// * renders each listed todo item on the screen with HTML attributes
+function renderTodos(todosArray) {
+  // clears everything inside <ul>t that contains .todo-items, since we are going to re-loop through everything and don't want to duplicate all of the older items
+  todoItemsList.innerHTML = '';
+
+  // runs through each item inside the todosArray and creates <li> for each
+  todosArray.forEach(function(item) {
+    // makes an <li> element 
+    const li = document.createElement('li');
+    // sets <li> attributes
+    li.setAttribute('class', 'item');
+    li.setAttribute('data-key', item.dateid); // aka time id
+
+    // looks to see if item has 'checked' status (ternary operator)
+    // adds .checked class to item if item.completed property is true
+    const checked = item.completed ? 'checked' : null;
+    // adds .checked to completed <li> elements, creates strike-through text decoration
+    if (item.completed === true) {
+      li.classList.add('checked');
+    }
+
+    // adds HTML styling to new <li>'s that we add, also has template literal to dynamically enter needed values
+    // uses back dashes to include the line breaks so HTML reads nicer
+    li.innerHTML = `
+      <input type="checkbox" class="checkbox" ${checked}>
+      ${item.name}
+      <button class="delete-button">X</button>
+    `;
+    // adds new <li> to the <ul>!
+    todoItemsList.append(li);
+  })
 
 // TODO: CREATE AN ARRAY WITH ALL TIME BLOCK NUMBERS
 
@@ -141,6 +210,42 @@ if (taskAreaBlockHour11 < currentHourString) {
 } else {
   console.log('11am: ','add current hour styling')
   divEl11.classList.add('present');
+
+// * gets values from localStorage after page refresh
+function getLocalStorage() {
+  const storageRef = localStorage.getItem('todosArray');
+  // if storage Reference variable exists,
+  if (storageRef) {
+    // uses JSON to convert string values back into array
+    todosArray = JSON.parse(storageRef);
+    // stores converted values in todosArray
+    renderTodos(todosArray);
+  }
+}
+
+// * toggles completion status
+function toggle(dateid) {
+  todosArray.forEach(function(item) {
+    // uses loose equality instead of strict here because one value is a number and one is a string
+    if (item.dateid == dateid) {
+      // toggles the value
+      item.completed = !item.completed;
+    }
+  });
+  // runs setLocalStorage() to update localStorage info
+  setLocalStorage(todosArray);
+}
+
+// * deletes item from todosArray
+//then updates localStorage & user screen
+function deleteTodo(dateid) {
+  // filters out <li> with the id and updates the todos array
+  todosArray = todosArray.filter(function(item) {
+    // use loose inequality instead of strict here because one value is a number and one is a string
+    return item.dateid != dateid;
+  });
+  // update the localStorage
+  setLocalStorage(todosArray);
 }
 
 if (taskAreaBlockHour12 < currentHourString) {
