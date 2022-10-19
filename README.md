@@ -2,7 +2,7 @@
 A simple calendar app to save events for each hour of the day
 
 ## Deployed App: 
-[Link to Deployed App](https://marina-russ.github.io/workday-scheduler/)
+[Link to Deployed App](https://marina-russ.github.io/msu-workday-scheduler/)
 
 ### User Story: 
 * AS AN employee with a busy schedule
